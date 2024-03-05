@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingredient Counter</title>
+  </head>
+  <body>
+    <h1>Ingredient Counter</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".csv" />
+      <button type="submit">Submit</button>
+    </form>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %} {% if ingredient_counts %}
+    <h2>Ingredient Counts:</h2>
+    <ul>
+      {% for ingredient, count in ingredient_counts.items() %}
+      <li>{{ ingredient }}: {{ count }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </body>
+</html>
